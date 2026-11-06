@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>قصص للجميع – الإخوة الأربعة</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8f6ff;--card:#fff;--ink:#1b2a49;--brand:#2f5bd3;--sun:#ffd23f;--coral:#ff6b6b;--leaf:#2eaa5b;--grape:#8e44ec;--sky:#27a9e1;--line:#bfe3f7}
+:root[data-contrast="high"]{--bg:#000;--card:#000;--ink:#fff;--brand:#ffe14d;--line:#fff;--sun:#ffe14d}
+html{font-size:var(--fs,18px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Baloo Bhaijaan 2",Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.8}
+:focus-visible{outline:5px solid var(--grape);outline-offset:3px;border-radius:8px}
+:root[data-contrast="high"] :focus-visible{outline-color:#fff}
+.skip{position:absolute;inset-inline-start:8px;top:-70px;background:var(--sun);color:#000;padding:8px 16px;border-radius:10px;z-index:30}.skip:focus{top:8px}
+.bar{position:sticky;top:0;z-index:20;background:var(--sky);padding:8px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;border-bottom:5px solid var(--sun)}
+.bar b{font-size:1.2rem;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+:root[data-contrast="high"] .bar{background:#000}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+button,.btn{font:inherit;font-weight:800;min-height:50px;padding:6px 18px;border-radius:999px;border:3px solid var(--brand);background:#fff;color:var(--brand);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+button:hover,.btn:hover{background:var(--brand);color:#fff}
+button[aria-pressed="true"]{background:var(--grape);border-color:var(--grape);color:#fff}
+:root[data-contrast="high"] button,:root[data-contrast="high"] .btn{background:#000;color:#fff;border-color:#fff}
+#stars{background:var(--sun);color:#000;border-radius:999px;padding:6px 16px;font-weight:800;border:3px solid #000}
+#now{position:sticky;top:76px;z-index:19;margin:8px 14px;padding:10px 16px;border-radius:16px;background:var(--sun);color:#000;font-weight:800;border:3px solid #000}#now[hidden]{display:none}
+main{max-width:980px;margin:0 auto;padding:20px 14px 50px}
+h1{font-size:2.1rem;line-height:1.4;margin:10px 0;font-weight:800;color:var(--brand)}
+h2{font-size:1.5rem;margin:0 0 12px;font-weight:800}
+h3{margin:0 0 6px}
+section{margin-top:34px}
+.lead{font-size:1.1rem;max-width:68ch}
+.stage{position:relative;aspect-ratio:16/9;background:#000;border-radius:24px;overflow:hidden;border:6px solid var(--coral)}
+.stage iframe,#player{position:absolute;inset:0;width:100%;height:100%;border:0}
+#ov{position:absolute;inset:0;z-index:5;background:rgba(27,42,73,.93);display:grid;place-items:center;padding:12px;overflow:auto}
+#ov[hidden]{display:none}
+.qbox{background:#fff;color:#1b2a49;border-radius:24px;padding:18px 22px;width:min(640px,100%);border:6px solid var(--sun)}
+.qbox h3{font-size:1.25rem}
+.opts{display:grid;gap:10px;margin:12px 0}
+.opts button{justify-content:flex-start;text-align:start;border-radius:18px;width:100%}
+.opts button:nth-child(1){border-color:var(--sky);color:#0b5f87}
+.opts button:nth-child(2){border-color:var(--grape);color:#6a2fb8}
+.opts button:nth-child(3){border-color:var(--coral);color:#a62c2c}
+.opts button:hover{color:#fff}
+.opts button.right{background:var(--leaf);border-color:var(--leaf);color:#fff}
+.opts button.wrong{opacity:.55}
+.fb{font-weight:800;min-height:1.8em}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.fine{color:inherit;opacity:.85}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:3px solid var(--line);border-radius:22px;padding:14px 20px}
+.c1{border-top:12px solid var(--sky)}.c2{border-top:12px solid var(--grape)}.c3{border-top:12px solid var(--leaf)}
+.scenes{list-style:none;padding:0;margin:0;display:grid;gap:12px;counter-reset:s}
+.scenes li{counter-increment:s;display:flex;gap:14px;align-items:flex-start;background:var(--card);border:3px solid var(--line);border-radius:20px;padding:10px 16px}
+.scenes li::before{content:counter(s);flex:none;width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.2rem}
+.scenes li:nth-child(2n)::before{background:var(--leaf)}.scenes li:nth-child(3n)::before{background:var(--grape)}.scenes li:nth-child(5n)::before{background:var(--sky)}
+details{background:var(--card);border:3px solid var(--line);border-radius:20px;padding:8px 20px;margin-top:10px}
+summary{cursor:pointer;font-weight:800;min-height:46px;display:flex;align-items:center}
+dt{font-weight:800;color:var(--brand)}dd{margin:0 0 8px}
+footer{text-align:center;padding:22px;font-weight:600}
+@media (max-width:560px){h1{font-size:1.6rem}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<div class="bar" role="toolbar" aria-label="أدوات تسهيل الاستخدام">
+  <b>🌈 قصص للجميع</b>
+  <div class="tools">
+    <span id="stars" aria-live="polite">⭐ 0</span>
+    <button id="fMinus" aria-label="تصغير الخط">أ−</button>
+    <button id="fPlus" aria-label="تكبير الخط">أ+</button>
+    <button id="hc" aria-pressed="false">تباين عالٍ</button>
+    <button id="read" aria-pressed="false">🔊 اقرأ لي</button>
+    <button id="assist" aria-pressed="false" aria-label="وضع قراءة الأزرار">🗣️ وضع قراءة الأزرار</button>
+  </div>
+</div>
+<div id="now" role="status" aria-live="polite" hidden></div>
+
+<main id="main">
+<h1>🏰 الإخوة الأربعة ورسالة الأسماء والصفات</h1>
+<p class="lead">قصة تدبرية بأكثر من طريقة للفهم: مكتوبة ومسموعة ومصوَّرة ومقسَّمة إلى مشاهد قصيرة. وسيتوقف الفيديو في أماكن محددة ليسألك سؤالًا صغيرًا.</p>
+
+<section aria-labelledby="h-video">
+  <h2 id="h-video">▶️ شاهد القصة</h2>
+  <div class="stage" id="stage">
+    <div id="player"></div>
+    <div id="ov" hidden>
+      <div class="qbox" role="dialog" aria-modal="true" aria-labelledby="qt">
+        <p class="fine" id="qn"></p>
+        <h3 id="qt"></h3>
+        <button id="qread">🔊 اقرأ السؤال والاختيارات</button>
+        <div class="opts" id="qopts"></div>
+        <p class="fb" id="qfb" aria-live="polite"></p>
+        <div class="row"><button id="qgo" hidden>▶️ كمّل الفيديو</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button id="full">⛶ ملء الشاشة</button>
+    <button id="reset">🔁 أعد أسئلة الفيديو</button>
+    <button id="test">👀 جرّب ظهور سؤال</button>
+    <a class="btn" href="https://youtu.be/RINLUFbHvI0" target="_blank" rel="noopener">افتح على يوتيوب</a>
+  </div>
+  <p class="fine">لتشغيل الترجمة اضغط زر CC داخل المشغّل. استخدم زر «ملء الشاشة» الموجود تحت الفيديو لتظهر الأسئلة أثناء التكبير.</p>
+</section>
+
+<section aria-labelledby="h-who">
+  <h2 id="h-who">👋 ماذا نقدّم لك؟</h2>
+  <div class="grid">
+    <div class="card c1"><h3>👂 للصم وضعاف السمع</h3><p>نصوص مكتوبة وترجمة وصور، ونص كامل للفيديو.</p></div>
+    <div class="card c2"><h3>👁️ للمكفوفين وضعاف البصر</h3><p>تعليق صوتي، وأزرار تُقرأ بصوت عالٍ، وتنقّل بالكيبورد.</p></div>
+    <div class="card c3"><h3>🧩 لصعوبات التعلم</h3><p>مشاهد قصيرة، ولغة سهلة، وأسئلة صغيرة أثناء الفيديو.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-sum">
+  <h2 id="h-sum">📝 ملخص القصة</h2>
+  <div class="card"><p id="summary"></p></div>
+</section>
+
+<section aria-labelledby="h-sc">
+  <h2 id="h-sc">🎬 مشاهد القصة بالترتيب</h2>
+  <ol class="scenes" id="scenes"></ol>
+</section>
+
+<section aria-labelledby="h-less">
+  <h2 id="h-less">💡 ماذا تعلّمنا؟</h2>
+  <div class="card"><ul id="lessons"></ul></div>
+  <div class="card" style="margin-top:12px"><h3>🤔 أسئلة للتفكير</h3><ol><li>ما الذي حدث للإخوة الأربعة؟ ولماذا؟</li><li>لماذا نجح سابق وكان سعيدًا ومطمئنًا؟</li><li>لو كنت مكان ظلوم وجاءتك فرصة ثانية، ماذا ستفعل؟</li></ol></div>
+</section>
+
+<section aria-labelledby="h-quiz">
+  <h2 id="h-quiz">🎯 اختبر نفسك</h2>
+  <div id="quiz"></div>
+</section>
+
+<section aria-labelledby="h-more">
+  <h2 id="h-more">📚 للمزيد من الفهم</h2>
+  <details><summary>النص المختصر للفيديو</summary><div id="transcript"></div></details>
+  <details><summary>كلمات ومعانيها</summary><dl id="gloss"></dl></details>
+</section>
+
+<section aria-labelledby="h-about">
+  <h2 id="h-about">ℹ️ عن المشروع</h2>
+  <div class="card">
+    <p><b>المجموعة 46</b> – قائد المجموعة: عبدالرحمن علي فتحي علي – عدد الأفراد: 6.</p>
+    <p>هدف المشروع تقديم محتوى ديني وتعليمي يراعي اختلاف احتياجات المتعلمين، ويحقق إتاحة التعليم للجميع.</p>
+    <p>الأدوات: Canva وElevenLabs وChatGPT.</p>
+  </div>
+</section>
+</main>
+<footer>© مشروع المجموعة 46 – تعليم متاح للجميع</footer>
+
+<script src="https://www.youtube.com/iframe_api" async></script>
+<script>
+/* ============ عدّل هنا ============ */
+var VIDEO_ID="RINLUFbHvI0";
+/* كل جملة يقرؤها الموقع لها ملف audio/pNN.mp3 حسب ترتيبها هنا (انظر phrases.txt) */
+var PHRASES=["تخطَّ إلى المحتوى", "تصغير الخط", "تكبير الخط", "تباين عالٍ", "اقرأ لي", "وضع قراءة الأزرار", "ملء الشاشة", "أعد أسئلة الفيديو", "جرّب ظهور سؤال", "افتح على يوتيوب", "اقرأ السؤال والاختيارات", "كمّل الفيديو", "النص المختصر للفيديو", "كلمات ومعانيها", "الاختيار", "زر", "رابط", "قسم قابل للفتح", "مفعّل", "غير مفعّل", "اضغط مرتين متتاليتين للتشغيل", "تم تفعيل وضع قراءة الأزرار. اضغط على أي زر مرة لتسمعه، ومرتين متتاليتين لتشغّله.", "تم إيقاف وضع قراءة الأزرار.", "أحسنت! إجابة صحيحة.", "حاول مرة أخرى، أنت قريب.", "تمت إعادة أسئلة الفيديو. شغّل الفيديو من البداية.", "أربعة إخوة هم ظلوم وظالم ومقتصد وسابق، يعيشون في مدينة الفردوس. أرسلهم الملك في مهمة إلى قرية صغيرة، وأعطاهم رسالة فيها أسماؤه وصفاته ليستعينوا بها. أهملها ظلوم، وحفظها ظالم دون أن يفهمها، وفهمها مقتصد واستخدم بعضها، أما سابق ففهمها واستخدمها كلها. فاختلفت حياتهم في القرية، واختلف مصيرهم عند العودة.", "السؤال: ماذا أرسل الملك مع الإخوة الأربعة في المهمة؟. الاختيارات: رسالة فيها أسماؤه وصفاته، كنزًا من الذهب، خريطة للمدينة", "السؤال: ماذا فعل ظلوم بالرسالة؟. الاختيارات: حفظها فقط، أهملها ولم يصدّقها، استخدمها كلها", "السؤال: لماذا لم ينتفع ظالم بالرسالة؟. الاختيارات: لأنه ضيّعها، لأنه أهملها، لأنه حفظها ولم يفهم معانيها", "السؤال: ماذا فعل سابق؟. الاختيارات: فهمها وحفظها واستخدمها كلها، استخدم بعضها فقط، حفظها فقط", "السؤال: أين سكن سابق في النهاية؟. الاختيارات: في سجن الهاوية، في أعلى الدرجات في الفردوس، في القرية الصغيرة", "رسالة فيها أسماؤه وصفاته", "كنزًا من الذهب", "خريطة للمدينة", "حفظها فقط", "أهملها ولم يصدّقها", "استخدمها كلها", "لأنه ضيّعها", "لأنه أهملها", "لأنه حفظها ولم يفهم معانيها", "فهمها وحفظها واستخدمها كلها", "استخدم بعضها فقط", "في سجن الهاوية", "في أعلى الدرجات في الفردوس", "في القرية الصغيرة"];
+/* t = الثانية التي يظهر عندها السؤال (مثال: 3 دقائق و20 ثانية = 200) */
+var QUESTIONS=[
+ {t:200,q:"ماذا أرسل الملك مع الإخوة الأربعة في المهمة؟",o:["رسالة فيها أسماؤه وصفاته","كنزًا من الذهب","خريطة للمدينة"],a:0},
+ {t:380,q:"ماذا فعل ظلوم بالرسالة؟",o:["حفظها فقط","أهملها ولم يصدّقها","استخدمها كلها"],a:1},
+ {t:560,q:"لماذا لم ينتفع ظالم بالرسالة؟",o:["لأنه ضيّعها","لأنه أهملها","لأنه حفظها ولم يفهم معانيها"],a:2},
+ {t:740,q:"ماذا فعل سابق؟",o:["فهمها وحفظها واستخدمها كلها","استخدم بعضها فقط","حفظها فقط"],a:0},
+ {t:860,q:"أين سكن سابق في النهاية؟",o:["في سجن الهاوية","في أعلى الدرجات في الفردوس","في القرية الصغيرة"],a:1}
+];
+/* ملفات الصوت الاختيارية (ElevenLabs) داخل مجلد audio. لو الملف غير موجود يُقرأ النص بصوت الجهاز */
+var CLIP={summary:"audio/summary.mp3",right:"audio/right.mp3",wrong:"audio/wrong.mp3",q:function(i){return "audio/q"+(i+1)+".mp3"}};
+var SUMMARY="أربعة إخوة هم ظلوم وظالم ومقتصد وسابق، يعيشون في مدينة الفردوس. أرسلهم الملك في مهمة إلى قرية صغيرة، وأعطاهم رسالة فيها أسماؤه وصفاته ليستعينوا بها. أهملها ظلوم، وحفظها ظالم دون أن يفهمها، وفهمها مقتصد واستخدم بعضها، أما سابق ففهمها واستخدمها كلها. فاختلفت حياتهم في القرية، واختلف مصيرهم عند العودة.";
+var SCENES=["الإخوة الأربعة: ظلوم وظالم ومقتصد وسابق يسكنون مدينة الفردوس، والملك يريد أن يختبرهم.","المهمة: يرسلهم الملك إلى قرية صغيرة، ومعهم رسالة فيها أسماؤه وصفاته ليستعينوا بها.","تعامل الإخوة مع الرسالة: ظلوم أهملها، وظالم حفظها فقط، ومقتصد فهمها واستخدم بعضها، وسابق فهمها واستخدمها كلها.","اختلاف النتائج: ظلوم وظالم تعبا وفشلا، ومقتصد نجح نجاحًا ناقصًا، وسابق عاش مطمئنًا ونجح.","النتيجة النهائية: سابق في أعلى الدرجات، ومقتصد في درجة أقل، وظالم يُعاقَب ثم يعود، وظلوم لا يعود أبدًا."];
+var LESSONS=["لا يكفي أن نحفظ أسماء الله وصفاته، بل يجب أن نفهم معانيها.","ولا يكفي أن نفهمها، بل يجب أن نستخدمها في حياتنا ونطلب العون بها.","التفكير في عاقبة الأمور يساعدنا على الاختيار الصحيح.","من اعتمد على الله اطمأن قلبه وزال خوفه وقلقه."];
+var TRANSCRIPT=["المقدمة: يرحّب لبيب ومفكر بالمشاهدين، ويدعوان إلى متابعة القصة بالتفكر والاعتبار، فالقصة التدبرية تربط الحقائق القرآنية بالحياة الواقعية.","المشهد الأول: الإخوة ظلوم وظالم ومقتصد وسابق في مدينة الفردوس، والملك يختبرهم؛ من نجح بقي، ومن أخفق كثيرًا سُجن في الهاوية ولا يعود، ومن أخفق قليلًا عوقب ثم عاد في درجة أقل.","المشهد الثاني: أرسلهم الملك في مهمة إلى قرية صغيرة، وكتب لهم رسالة فيها أسماؤه وصفاته، وبيّن حاجتهم إليها وكيف يستخدمونها، فسيمرون بلحظات ضعف وعجز وفقر وجهل وخوف.","المشهد الثالث: ظلوم أهمل الرسالة. ظالم صدّقها وحفظها فقط. مقتصد فهمها وحفظها واستخدم قليلًا منها. سابق تفكر في العواقب ففهمها وحفظها واستخدمها كلها.","المشهد الرابع: ظلوم وقع في الهم والخوف والعجز. ظالم كان كمن يموت عطشًا والماء في حقيبته ولا يعرف كيف يفتحها. مقتصد عاش سعادة وشقاءً معًا. سابق اطمأن لأن الملك غني وقوي وعليم وهادٍ، فنجح بسهولة.","المشهد الخامس: سابق في أعلى الدرجات، ومقتصد في درجة أقل، وظالم عوقب ثم عاد، وظلوم لم يعد أبدًا؛ عذّب نفسه مرتين: حين حرمها فهم الأسماء، وحين شكّ فيها."];
+var GLOSS=[["التدبر","أن نفكر بهدوء في معنى الكلام ونتعلم منه."],["العبرة","الدرس الذي نأخذه من القصة."],["العاقبة","النتيجة التي تأتي في النهاية."],["الفردوس","أعلى مكان في الجنة."],["الهاوية","في القصة: سجن العقوبة."],["مقتصد","الذي يفعل بعض الصواب ويقصّر في بعضه."],["سابق","الذي يتقدم في فعل الخير ولا يقصّر."]];
+/* ================================== */
+var $=function(i){return document.getElementById(i)};
+function li(t){var e=document.createElement("li");e.textContent=t;return e}
+$("summary").textContent=SUMMARY;
+SCENES.forEach(function(s){$("scenes").appendChild(li(s))});
+LESSONS.forEach(function(s){$("lessons").appendChild(li(s))});
+TRANSCRIPT.forEach(function(s){var p=document.createElement("p");p.textContent=s;$("transcript").appendChild(p)});
+GLOSS.forEach(function(g){var a=document.createElement("dt"),b=document.createElement("dd");a.textContent=g[0];b.textContent=g[1];$("gloss").append(a,b)});
+
+/* ---- الصوت: ملف مسجّل أولًا، ثم صوت الجهاز ---- */
+var voices=[],curAudio=null;
+function loadV(){try{voices=speechSynthesis.getVoices()||[]}catch(e){}}
+if(window.speechSynthesis){loadV();speechSynthesis.onvoiceschanged=loadV}
+function banner(t,keep){var n=$("now");n.textContent="🔊 "+t;n.hidden=false;clearTimeout(banner.h);if(!keep)banner.h=setTimeout(function(){n.hidden=true},6000)}
+function stopAll(){seq++;if(curAudio){try{curAudio.pause()}catch(e){}curAudio=null}if(window.speechSynthesis)speechSynthesis.cancel()}
+var seq=0;
+function norm(t){return String(t).replace(/[^\u0600-\u06FF0-9A-Za-z\s]/g," ").replace(/\s+/g," ").trim()}
+function tts(t,done){
+  var ss=window.speechSynthesis,fin=false;
+  function end(){if(!fin){fin=true;if(done)done()}}
+  if(!ss){setTimeout(end,1500);return}
+  ss.cancel();ss.resume();
+  setTimeout(function(){var u=new SpeechSynthesisUtterance(t);u.lang="ar-SA";u.rate=.9;
+    var v=voices.filter(function(x){return /^ar/i.test(x.lang)})[0];
+    if(v)u.voice=v;else if(voices.length)banner("⚠️ لا يوجد صوت عربي في جهازك، وملف الصوت غير موجود لهذه الجملة.");
+    u.onend=end;u.onerror=end;ss.speak(u)},80);
+}
+function clipOf(t){var i=PHRASES.indexOf(t);return i<0?null:"audio/p"+(i<9?"0":"")+(i+1)+".mp3"}
+function play1(t,done){
+  var src=clipOf(t);
+  if(!src){tts(t,done);return}
+  var a=new Audio(src),fell=false;curAudio=a;
+  function fb(){if(fell)return;fell=true;tts(t,done)}
+  a.onerror=fb;a.onended=done;
+  var p=a.play();if(p&&p.catch)p.catch(fb);
+}
+function speakSeq(parts,onend){
+  stopAll();var me=++seq;banner(parts.join("، "));var i=0;
+  (function next(){if(me!==seq)return;if(i>=parts.length){if(onend)onend();return}play1(parts[i++],next)})();
+}
+function speak(text,src,onend){speakSeq([text],onend)}
+
+/* ---- أسئلة أثناء الفيديو ---- */
+var player,poll,done=[],stars=0,cur=-1;
+window.onYouTubeIframeAPIReady=function(){
+  player=new YT.Player("player",{videoId:VIDEO_ID,width:"100%",height:"100%",
+    playerVars:{cc_load_policy:1,hl:"ar",cc_lang_pref:"ar",rel:0,fs:0,playsinline:1,modestbranding:1},
+    events:{onStateChange:function(e){clearInterval(poll);if(e.data===1)poll=setInterval(check,400)}}});
+};
+function check(){
+  var c=player.getCurrentTime();
+  for(var i=0;i<QUESTIONS.length;i++){
+    if(done[i])continue;
+    if(c>=QUESTIONS[i].t){if(c-QUESTIONS[i].t>8){done[i]=true;continue}showQ(i);return}
+    break;
+  }
+}
+function qText(i){var q=QUESTIONS[i];return "السؤال: "+q.q+". الاختيارات: "+q.o.join("، ")}
+function showQ(i){
+  done[i]=true;cur=i;if(player&&player.pauseVideo)player.pauseVideo();clearInterval(poll);
+  var q=QUESTIONS[i];
+  $("qn").textContent="سؤال "+(i+1)+" من "+QUESTIONS.length;
+  $("qt").textContent=q.q;$("qfb").textContent="";$("qgo").hidden=true;
+  var box=$("qopts");box.innerHTML="";
+  q.o.forEach(function(t,oi){
+    var b=document.createElement("button");b.textContent=t;b.dataset.pre="الاختيار: ";
+    b.onclick=function(){
+      if(oi===q.a){b.classList.add("right");$("qfb").textContent="🎉 أحسنت! إجابة صحيحة.";
+        Array.prototype.forEach.call(box.children,function(x){x.disabled=true});
+        stars++;$("stars").textContent="⭐ "+stars;$("qgo").hidden=false;$("qgo").focus();speak("أحسنت! إجابة صحيحة.",CLIP.right)}
+      else{b.classList.add("wrong");$("qfb").textContent="💪 حاول مرة أخرى، أنت قريب.";speak("حاول مرة أخرى، أنت قريب.",CLIP.wrong)}
+    };box.appendChild(b)});
+  $("ov").hidden=false;
+  try{if(document.fullscreenElement&&document.fullscreenElement!==$("stage"))document.exitFullscreen()}catch(e){}
+  speak(qText(i),CLIP.q(i));
+  setTimeout(function(){box.firstChild&&box.firstChild.focus()},50);
+}
+$("qread").onclick=function(){if(cur>=0)speak(qText(cur),CLIP.q(cur))};
+$("qgo").onclick=function(){stopAll();$("ov").hidden=true;player.playVideo()};
+$("reset").onclick=function(){done=[];speak("تمت إعادة أسئلة الفيديو. شغّل الفيديو من البداية.")};
+$("full").onclick=function(){var s=$("stage");(s.requestFullscreen||s.webkitRequestFullscreen||function(){}).call(s)};
+
+$("qgo").onclick=function(){stopAll();$("ov").hidden=true;if(player&&player.playVideo)player.playVideo()};
+$("test").onclick=function(){showQ(0)};
+setTimeout(function(){if(!player)banner("⚠️ مشغّل يوتيوب لم يُحمَّل. انشر الموقع على Netlify أو افتحه من رابط http/https، ولا تفتحه كملف من الجهاز.",true)},7000);
+
+/* قسم الأسئلة الثابت (يعمل حتى لو لم يُحمَّل الفيديو) */
+(function(){
+  var box=$("quiz");
+  QUESTIONS.forEach(function(q,i){
+    var d=document.createElement("div");d.className="card";d.style.marginTop="12px";
+    var h=document.createElement("h3");h.textContent=(i+1)+". "+q.q;
+    var rb=document.createElement("button");rb.textContent="🔊 اقرأ السؤال والاختيارات";
+    rb.onclick=function(){speak(qText(i),CLIP.q(i))};
+    var o=document.createElement("div");o.className="opts";
+    var f=document.createElement("p");f.className="fb";f.setAttribute("aria-live","polite");
+    q.o.forEach(function(t,oi){
+      var b=document.createElement("button");b.textContent=t;b.dataset.pre="الاختيار: ";
+      b.onclick=function(){
+        if(oi===q.a){b.classList.add("right");f.textContent="🎉 أحسنت! إجابة صحيحة.";
+          Array.prototype.forEach.call(o.children,function(x){x.disabled=true});
+          stars++;$("stars").textContent="⭐ "+stars;speak("أحسنت! إجابة صحيحة.",CLIP.right)}
+        else{b.classList.add("wrong");f.textContent="💪 حاول مرة أخرى، أنت قريب.";speak("حاول مرة أخرى، أنت قريب.",CLIP.wrong)}
+      };o.appendChild(b)});
+    d.append(h,rb,o,f);box.appendChild(d);
+  });
+})();
+
+/* ---- أدوات التسهيل ---- */
+var R=document.documentElement,size=18;
+function setSize(n){size=Math.max(14,Math.min(30,n));R.style.setProperty("--fs",size+"px")}
+$("fPlus").onclick=function(){setSize(size+2)};$("fMinus").onclick=function(){setSize(size-2)};
+$("hc").onclick=function(){var on=$("hc").getAttribute("aria-pressed")!="true";$("hc").setAttribute("aria-pressed",on);if(on)R.setAttribute("data-contrast","high");else R.removeAttribute("data-contrast")};
+$("read").onclick=function(){var b=$("read");
+  if(b.getAttribute("aria-pressed")=="true"){stopAll();b.setAttribute("aria-pressed","false");return}
+  b.setAttribute("aria-pressed","true");
+  speak(SUMMARY,CLIP.summary,function(){b.setAttribute("aria-pressed","false")});
+  if(!window.speechSynthesis)return;
+};
+
+/* وضع قراءة الأزرار: ضغطة تقرأ، وضغطتان متتاليتان تشغّلان */
+var assist=false,lastEl=null,lastT=0,asBtn=$("assist");
+function labelParts(el){
+  var parts=[];if(el.dataset.pre)parts.push("الاختيار");
+  parts.push(norm(el.getAttribute("aria-label")||el.textContent));
+  var p=el.getAttribute("aria-pressed");if(p!==null)parts.push(p=="true"?"مفعّل":"غير مفعّل");
+  parts.push(el.tagName=="A"?"رابط":el.tagName=="SUMMARY"?"قسم قابل للفتح":"زر");
+  parts.push("اضغط مرتين متتاليتين للتشغيل");
+  return parts;
+}
+asBtn.onclick=function(){assist=!assist;lastEl=null;asBtn.setAttribute("aria-pressed",assist);
+  speak(assist?"تم تفعيل وضع قراءة الأزرار. اضغط على أي زر مرة لتسمعه، ومرتين متتاليتين لتشغّله.":"تم إيقاف وضع قراءة الأزرار.")};
+document.addEventListener("click",function(e){
+  if(!assist)return;
+  var el=e.target.closest&&e.target.closest("button,a,summary");
+  if(!el||el===asBtn)return;
+  var now=Date.now();
+  if(el===lastEl&&now-lastT<4000){lastEl=null;stopAll();return}
+  e.preventDefault();e.stopPropagation();lastEl=el;lastT=now;speakSeq(labelParts(el));
+},true);
+</script>
+</body>
+</html>
